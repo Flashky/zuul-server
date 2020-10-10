@@ -20,3 +20,7 @@ zuul:
        service-id: api-v0-questions
        strip-prefix: false
 
+management:  endpoints:
+    web:
+      exposure:        include: 
+        - routes
