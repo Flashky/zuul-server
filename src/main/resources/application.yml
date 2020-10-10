@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: zuul-gateway
+    
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}
+  client:
+    enabled: true
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
