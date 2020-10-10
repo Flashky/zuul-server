@@ -19,6 +19,7 @@ zuul:
        path: /questions/**
        service-id: api-v0-questions
        strip-prefix: false
+       sensitive-headers: Cookie,Set-Cookie # Allow Authorization header forwarding
 
 management:  endpoints:
     web:
