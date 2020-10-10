@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: zuul-gateway
+    
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}
+  client:
+    enabled: true
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+      
+zuul:
+  prefix: /api/v0
+  sensitive-headers: Cookie,Set-Cookie # Allow Authorization header forwarding
+  routes:    api-v0-questions:
+       path: /questions/**
+       service-id: api-v0-questions
+       strip-prefix: false
+
+management:  endpoints:
+    web:
+      exposure:        include: 
+        - routes
