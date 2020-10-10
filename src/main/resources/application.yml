@@ -15,11 +15,11 @@ eureka:
       
 zuul:
   prefix: /api/v0
+  sensitive-headers: Cooke,Set-Cookie # Allow Authorization header forwarding
   routes:    api-v0-questions:
        path: /questions/**
        service-id: api-v0-questions
        strip-prefix: false
-       sensitive-headers: Cookie,Set-Cookie # Allow Authorization header forwarding
 
 management:  endpoints:
     web:
