@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  zuul-server:
+    image: flashk/zuul-server:latest
+    ports:
+      - 8080:8080
+    networks:
+      - xio91net
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://my-eureka-server:1111/eureka
+networks:
+  xio91net:
+    external: true
